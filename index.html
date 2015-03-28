@@ -9,15 +9,20 @@
 		$(document).ready(function() {
 			initInsults()
 
-			// click handler
+			// too many click handler
 			$("#too-many-btn").click(function() {
 				var number = Number($("#zima-count").val())
 				if (number === 0) {
-					$("#response-lbl").empty().append("giddy up, ya <b>maroon</b>")
+					showResponse("giddy up, ya <b>maroon</b>")
 				}
 				else {
-					$("#response-lbl").empty().append("no such thing, ya <b>" + insults[getRandom(insults.length)] + "</b>")
+					showResponse("no such thing, ya <b>" + insults[getRandom(insults.length)] + "</b>")
 				}
+			})
+
+			// donate click handler
+			$("#donate-link").click(function() {
+				showResponse("<b>you gullible</b>")
 			})
 
 			// enter key listener
@@ -37,6 +42,10 @@
 			})
 		})
 
+		function showResponse(text) {
+			$("#response-lbl").empty().append(text)
+		}
+
 		function initInsults() {
 			insults = [
 				"dingus",
@@ -48,13 +57,10 @@
 				"our lady peace",
 				"nelson",
 				"momento",
-				"airhead",
-				"floozy",
-				"twerp",
 				"danny tanner",
 				"s thing we all drew in school",
 				"grimace",
-				"cheating husband"
+				"morrissey"
 			]
 		}
 
@@ -70,6 +76,8 @@
 	  	<button id="too-many-btn" type="button">too many?</button>
 	  	<br/><br/>
 	  	<span id="response-lbl"></span>
+	  	<br/><br/>
+	  	<a id="donate-link" href="#">Help Donate!</a>
 	</form>
 </body>
 </html>
