@@ -1,0 +1,75 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>Too Many Zimas?</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		var insults = [];
+
+		$(document).ready(function() {
+			initInsults()
+
+			// click handler
+			$("#too-many-btn").click(function() {
+				var number = Number($("#zima-count").val())
+				if (number === 0) {
+					$("#response-lbl").empty().append("giddy up, ya <b>maroon</b>")
+				}
+				else {
+					$("#response-lbl").empty().append("no such thing, ya <b>" + insults[getRandom(insults.length)] + "</b>")
+				}
+			})
+
+			// enter key listener
+			$("#zima-count").keypress(function(e) {
+			    if(e.which == 13) {
+			        $("#too-many-btn").click()
+			    }
+			})
+
+			// block enter form submission
+			$("form").on("keyup keypress", function(e) {
+				var code = e.keyCode || e.which
+				if (code  == 13) {               
+					e.preventDefault()
+					return false
+				}
+			})
+		})
+
+		function initInsults() {
+			insults = [
+				"dingus",
+				"philathropist",
+				"john wilkes doof",
+				"polyamorous relationship",
+				"lynard skynard",
+				"wheres waldo",
+				"our lady peace",
+				"nelson",
+				"momento",
+				"airhead",
+				"floozy",
+				"twerp",
+				"danny tanner",
+				"s thing we all drew in school",
+				"grimace",
+				"cheating husband"
+			]
+		}
+
+		function getRandom(max) {
+		  return Math.floor(Math.random() * max)
+		}
+	</script>
+</head>
+<body>
+	<form>
+		how many?
+	  	<input type="number" id="zima-count" name="zimas" max="43766" step="1" />
+	  	<button id="too-many-btn" type="button">too many?</button>
+	  	<br/><br/>
+	  	<span id="response-lbl"></span>
+	</form>
+</body>
+</html>
