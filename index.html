@@ -5,10 +5,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript">
 		var insults = [];
-
 		$(document).ready(function() {
 			initInsults()
-
 			// chelsea click handler
 			$("#too-many-btn").click(function() {
 				var number = Number($("#zima-count").val())
@@ -19,16 +17,13 @@
 					showResponse("no such thing, ya <b>" + insults[getRandom(insults.length)] + "</b>")
 				}
 			})
-
 			// enter key listener
 			$("#zima-count").keypress(function(e) {
 			    if(e.which == 13) {
 			        $("#too-many-btn").click()
 			    }
-
 			    return isNumberKey(e)
 			})
-
 			// block enter form submission
 			$("form").on("keyup keypress", function(e) {
 				var code = e.keyCode || e.which
@@ -38,11 +33,9 @@
 				}
 			})
 		})
-
 		function showResponse(text) {
 			$("#response-lbl").empty().append(text)
 		}
-
 		function initInsults() {
 			insults = [
 				"dingus",
@@ -71,19 +64,20 @@
 				"temptress",
 				"ancient loofah",
 				"rookie card",
-				"david the gnome"
+				"david the gnome",
+				"melissa joan fart",
+				"short music for short people",
+				"sting operation",
+				"criterion collection"
 			]
 		}
-
 		function isNumberKey(evt) {
 		    var charCode = (evt.which) ? evt.which : event.keyCode;
 		    if (charCode != 46 && charCode > 31
 		    && (charCode < 48 || charCode > 57))
 		        return false
-
 		    return true
 		}
-
 		function getRandom(max) {
 		  return Math.floor(Math.random() * max)
 		}
@@ -94,13 +88,12 @@
   		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   		ga('create', 'UA-63042515-1', 'auto');
 		 ga('send', 'pageview');
-
 	</script>
 </head>
 <body>
+	<h1>The Honest TMZ</h1>
 	<form>
 		how many?
 	  	<input type="number" id="zima-count" name="zimas" max="43766" step="1" />
